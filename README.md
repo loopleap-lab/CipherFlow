@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-<h3 align="center">A Hardware-Aware Compiler Framework for Efficient Secure Inference</h3>
+<h3 align="center">CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference</h3>
 
 <p align="center">
   <a href="demo"><b>Demo</b></a> |
@@ -21,21 +21,35 @@
 
 ## About
 
-**CipherFlow** (NeurIPS 2026) is a compiler for privacy-preserving machine learning (PPML) inference. Give it
-a PyTorch model and a target deployment, meaning the server's hardware and its network to the client, and it
-plans how each operation of the model should run privately. It measures the costs of the available
-privacy-preserving methods, explores the choices for every operator, and builds the fastest plan for that
-deployment. Each plan comes with its estimated latency and communication, an operator-by-operator
-explanation, and a check on real inputs.
+**CipherFlow** (NeurIPS 2026) is a compiler framework for cryptographically secure AI inference. It takes a
+high-level AI computation graph, available cryptographic primitives, and a target hardware and network
+configuration to construct a latency-optimized hybrid secure inference plan.
 
 <p align="center">
-  <img alt="CipherFlow takes a PyTorch model and a target deployment, measures costs, explores privacy-preserving choices for every operator, and builds a private inference plan with its estimated latency and communication." src="docs/assets/cipherflow-overview-v4.png" width="100%">
+  <a href="docs/assets/cipherflow-overview.pdf"><img alt="CipherFlow takes a model graph, HE/MPC cryptographic primitives, and CPU/GPU and network profiles. MicroBench, state-expanded planning, and BlockFold produce a latency-optimized hybrid secure plan with conversions and HE refresh." src="docs/assets/cipherflow-overview.png" width="100%"></a>
 </p>
 
-Under the hood, the two privacy-preserving methods are homomorphic encryption (HE) and secure multi-party
-computation (MPC). For every operator, CipherFlow jointly chooses HE or MPC, where to convert between them,
-and where to refresh ciphertexts (bootstrapping), using measured hardware and network costs. State-expanded
-planning and BlockFold keep this search fast on Transformer-scale models.
+**CipherFlow at a glance.** Model graphs, cryptographic primitives, and hardware/network profiles inform a
+latency-optimized HE–MPC plan with conversions and HE maintenance.
+
+The framework addresses two coupled challenges:
+
+- **Programming usability.** AI developers and data scientists express model computations while the compiler
+  selects homomorphic encryption (HE) or secure multi-party computation (MPC) for each operator and makes
+  conversions, state alignment, and ciphertext maintenance explicit.
+- **Execution efficiency.** The compiler jointly optimizes these decisions under measured hardware and
+  network costs and cryptographic-state constraints, adapting the plan to the target deployment.
+
+Three techniques connect the programming interface to deployment-specific execution planning:
+
+- **MicroBench** profiles the costs of HE/MPC operators, conversions, and bootstrapping on the target deployment.
+- **State-expanded planning** tracks execution domains and remaining HE levels to jointly optimize placement,
+  conversions, and maintenance while enforcing feasibility.
+- **BlockFold** summarizes branched regions as boundary-state transition tables, making state-aware planning
+  scalable on Transformer graphs with residual and attention joins.
+
+Each plan comes with its estimated latency and communication, an operator-by-operator explanation, and a
+check on real inputs. See [Status and roadmap](#status-and-roadmap) for the current implementation scope.
 
 CipherFlow plans against an abstraction of the backends. A backend is a set of
 *methods*, each one operator in one domain with the CKKS levels it consumes, the shapes and value ranges it
@@ -157,7 +171,7 @@ plans executed under encryption ([ROADMAP.md](ROADMAP.md)). The main limits toda
 
 ```bibtex
 @inproceedings{zhang2026cipherflow,
-  title     = {CipherFlow: Hardware-Aware Compiler Framework for Low-Latency Hybrid Secure Inference},
+  title     = {CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference},
   author    = {Zhang, Hedong and Zheng, Mengxin and Lou, Qian},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
   year      = {2026}
