@@ -54,4 +54,4 @@ then returns the cheapest plan.
 | `backends/` | HE (NEXUS) adapters used by the MicroBench profilers |
 | `native/` | measured kernels: OpenFHE HE operators, bootstrapping and conversions (`native/openfhe`), SEAL conversions (`native/conversion`) |
 | `demo/` | the demo: PyTorch Transformers in, plans operator by operator out (script, web page builder, terminal recordings) |
-| `docs/` | documentation (user guide, backends, this page, FAQ, tutorials); the [website](https://ucf-ml-research.github.io/CipherFlow/) and the plan visualization (`docs/planner/`), served by GitHub Pages and built by `demo/web`; figures and terminal recordings (`docs/assets/`) |
+| `docs/` | documentation (user guide, backends, this page, FAQ, tutorials); the [website](https://loopleap-lab.github.io/CipherFlow/) and the plan visualization (`docs/planner/`), served by GitHub Pages and built by `demo/web`; figures and terminal recordings (`docs/assets/`) |

@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/cipherflow-logo-dark.png">
-    <img alt="CipherFlow" src="docs/assets/cipherflow-logo-light.png" width="520">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/cipherflow-refined-a-dark.png">
+    <img alt="CipherFlow" src="docs/assets/cipherflow-refined-a-light.png" width="520">
   </picture>
 </p>
 
@@ -60,18 +60,18 @@ python -m demo.plan_pytorch_model --model bert --ip SERVER_IP -o plan.json      
 
 - [`demo/`](demo) has the input models and the two-terminal setup for measuring the network
   (`cipherflow netbench --serve` on the server).
-- The [interactive visualization](https://ucf-ml-research.github.io/CipherFlow/planner/) shows the PyTorch code, a deployment
+- The [interactive visualization](https://loopleap-lab.github.io/CipherFlow/planner/) shows the PyTorch code, a deployment
   picker, the plan as a graph and as a table for each block, and its latency against static placements.
 
 ## Installation
 
 ```bash
-git clone https://github.com/UCF-ML-Research/CipherFlow.git
+git clone https://github.com/loopleap-lab/CipherFlow.git
 cd CipherFlow
 pip install -e ".[torch]"            # PyTorch is needed for from_torch, the demo and cipherflow.runtime
 ```
 
-Or `pip install "cipherflow[torch] @ git+https://github.com/UCF-ML-Research/CipherFlow.git"` for the library
+Or `pip install "cipherflow[torch] @ git+https://github.com/loopleap-lab/CipherFlow.git"` for the library
 alone. CipherFlow needs Python 3.10 or later. Planning with the shipped profiles needs none of the HE or MPC
 backends. The [user guide](docs/user-guide.md#installation) has the other options.
 

@@ -12,7 +12,7 @@ is left to the HE/MPC backends.
 ## Install
 
 ```bash
-git clone https://github.com/UCF-ML-Research/CipherFlow.git
+git clone https://github.com/loopleap-lab/CipherFlow.git
 cd CipherFlow
 pip install -e .
 ```

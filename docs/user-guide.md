@@ -16,7 +16,7 @@ explains the planner; the [API reference](../cipherflow/README.md#api) lists eve
 From source, which also gives you the demo, the tutorials and the native backends:
 
 ```bash
-git clone https://github.com/UCF-ML-Research/CipherFlow.git
+git clone https://github.com/loopleap-lab/CipherFlow.git
 cd CipherFlow
 pip install -e ".[torch]"
 ```
@@ -24,7 +24,7 @@ pip install -e ".[torch]"
 Or with pip from GitHub, for the library alone:
 
 ```bash
-pip install "cipherflow[torch] @ git+https://github.com/UCF-ML-Research/CipherFlow.git"
+pip install "cipherflow[torch] @ git+https://github.com/loopleap-lab/CipherFlow.git"
 ```
 
 - CipherFlow needs Python 3.10 or later.
