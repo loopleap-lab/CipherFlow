@@ -102,8 +102,9 @@ def main() -> None:
     (HERE / "cipherflow_site.html").write_text(page)
     (DOCS / "index.html").write_text(standalone(
         page, '<header class="top"',
-        "CipherFlow: a hardware-aware compiler framework for efficient secure inference. It places every operator "
-        "of a PyTorch model in homomorphic encryption or secure multi-party computation for your hardware and network."))
+        "CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference. "
+        "A compiler framework addressing programming usability and execution efficiency with AI graphs, "
+        "cryptographic primitives, and deployment-specific hardware and network costs."))
     (DOCS / ".nojekyll").write_text("")
     print(f"wrote {DOCS / 'index.html'} ({len(page) / 1e3:.0f} kB), {planner / 'index.html'} "
           f"({len(body) / 1e6:.2f} MB) and {HERE / 'cipherflow_demo.html'}")

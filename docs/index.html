@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="CipherFlow: a hardware-aware compiler framework for efficient secure inference. It places every operator of a PyTorch model in homomorphic encryption or secure multi-party computation for your hardware and network.">
+<meta name="description" content="CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference. A compiler framework addressing programming usability and execution efficiency with AI graphs, cryptographic primitives, and deployment-specific hardware and network costs.">
 <style>
 :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
 </style>
-<title>CipherFlow</title>
+<title>CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Patrick+Hand&display=swap">
@@ -83,6 +83,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--wash-2); c
 .top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
 .mark { font: 700 19px/1 var(--display); letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
 .mark b { color: var(--teal); }
+.mark img { display: block; width: 160px; height: auto; }
 .mark:hover { color: var(--ink); }
 .top nav { margin-left: auto; display: flex; align-items: center; gap: 26px; font-size: 14.5px; }
 .top nav a { position: relative; color: var(--muted); text-decoration: none; padding-block: 6px; white-space: nowrap; }
@@ -126,16 +127,28 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--wash-2); c
 }
 .hero::after { content: ""; position: absolute; z-index: -1; width: 820px; height: 820px; right: -260px; top: -260px; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(4, 127, 120, 0.08), rgba(35, 37, 155, 0.05) 55%, transparent); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: start; padding-block: 56px 80px; }
-.hero-copy { padding-top: 34px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px 56px; align-items: start; padding-block: 48px 72px; }
+.hero-copy { padding-top: 0; }
 @media (max-width: 1040px) { .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-block: 40px 64px; } .hero-copy { padding-top: 0; } }
 .hero-copy { display: grid; gap: 24px; align-content: center; min-width: 0; }
-.hero h1 { margin: 0; line-height: 0; }
-.hero h1 img { width: min(470px, 100%); height: auto; }
-.tagline { font: 600 clamp(28px, 3.2vw, 40px)/1.12 var(--display); letter-spacing: -0.025em; max-width: 19ch; text-wrap: balance; }
+.hero-logo { width: min(360px, 100%); height: auto; }
+.hero h1 { margin: 0; }
+.tagline { font: 600 clamp(28px, 3.2vw, 40px)/1.16 var(--display); letter-spacing: -0.025em; max-width: 23ch; text-wrap: balance; }
 .tagline em { font-style: normal; color: var(--teal); }
 .pitch { font-size: 17px; color: var(--muted); max-width: 52ch; }
 .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.paper-overview { grid-column: 1 / -1; margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 18px; padding: 24px; }
+.hero .plan-card { grid-column: 2; grid-row: 1; }
+@media (max-width: 1040px) { .hero .plan-card { grid-column: 1; grid-row: 3; } }
+.paper-overview img { display: block; width: 100%; height: auto; }
+.paper-overview figcaption { margin-top: 18px; font-size: 14px; color: var(--muted); }
+.challenges { display: grid; gap: 14px; color: var(--muted); font-size: 15px; }
+.challenges strong { color: var(--ink); }
+.citation { scroll-margin-top: 90px; }
+.citation .pout { margin-top: 20px; }
+.citation pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.fmark img { width: 210px; height: auto; display: block; }
+@media (max-width: 520px) { .paper-overview { padding: 14px; border-radius: 12px; } }
 
 /* the plan sheet: a hand-drawn card on warm paper; three numbered steps (server, network, the plan) */
 .plan-card { position: relative; background: var(--sk-paper); border: 2px solid var(--sk-ink); border-radius: 22px 16px 24px 15px / 15px 24px 16px 22px; box-shadow: 4px 5px 0 rgba(31, 35, 80, 0.9), 0 30px 60px -36px rgba(35, 37, 155, 0.35); min-width: 0; display: grid; color: var(--sk-ink); }
@@ -486,12 +499,13 @@ h1:focus { outline: none; }
 <body>
 <header class="top" id="top">
   <div class="wrap">
-    <a class="mark" href="#home">Cipher<b>Flow</b></a>
+    <a class="mark" href="#home"><img src="assets/cipherflow-refined-a-light.png" width="1146" height="216" alt="CipherFlow home"></a>
     <nav aria-label="Pages">
       <a href="#how" data-route="how">How it works</a>
       <a href="#start" data-route="start">Get started</a>
       <a href="#tutorials" data-route="tutorials">Tutorials</a>
       <a href="#roadmap" data-route="roadmap">Roadmap</a>
+      <a href="#citation">Cite</a>
     </nav>
     <a class="gh" href="https://github.com/loopleap-lab/CipherFlow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
   </div>
@@ -504,19 +518,26 @@ h1:focus { outline: none; }
     <div class="hero-copy">
       <div class="badges">
         <span class="pill"><i></i>NeurIPS 2026 · Apache-2.0</span>
-        <!-- arXiv paper: when the link exists, replace this <span> with
-             <a class="pill" href="https://arxiv.org/abs/XXXX.XXXXX"> ...same icon... arXiv</a> -->
-        <span class="pill soon" aria-disabled="true" title="The paper link will be added here"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5.6L13 4.9V13a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3 13V3A1.5 1.5 0 0 1 4.5 1.5Zm5 1.2V5.2c0 .3.2.5.5.5h2.4L9 2.7ZM5.2 8.3l1.3 1.9-1.4 2.1h1.1l.9-1.4.9 1.4h1.1l-1.4-2.1 1.3-1.9H7.9l-.8 1.2-.8-1.2H5.2Zm5 0v4h1v-4h-1Z"/></svg>arXiv<small>soon</small></span>
       </div>
-      <h1 tabindex="-1"><img src="assets/cipherflow-refined-a-light.png" width="1146" height="216" alt="CipherFlow"></h1>
-      <p class="tagline">A hardware-aware compiler framework for <em>efficient secure inference</em></p>
-      <p class="pitch">Private inference splits a model between homomorphic encryption and secure multi-party computation. CipherFlow finds the split for your hardware and network: for every operator of a PyTorch model, where it runs, where to convert, and where to bootstrap.</p>
+      <img class="hero-logo" src="assets/cipherflow-refined-a-light.png" width="1146" height="216" alt="CipherFlow">
+      <h1 class="tagline" tabindex="-1"><span class="sr">CipherFlow: </span>Compiling AI Programs for <em>Efficient Cryptographically Secure Inference</em></h1>
+      <p class="pitch">CipherFlow takes a high-level AI computation graph, available cryptographic primitives, and a target hardware and network configuration to construct a latency-optimized hybrid secure inference plan.</p>
+      <div class="challenges">
+        <p><strong>Programming usability.</strong> AI developers and data scientists express model computations while the compiler selects HE/MPC operators, conversions, state alignment, and ciphertext maintenance.</p>
+        <p><strong>Execution efficiency.</strong> MicroBench profiles deployment costs; state-expanded planning jointly optimizes feasible execution decisions; and BlockFold scales planning across branched Transformer graphs.</p>
+      </div>
       <div class="cta">
         <a class="btn solid" href="https://github.com/loopleap-lab/CipherFlow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>View on GitHub</a>
         <a class="btn ghost" href="#start">Get started</a>
-        <a class="btn ghost" href="https://github.com/loopleap-lab/CipherFlow/blob/main/ROADMAP.md">View roadmap</a>
+        <a class="btn ghost" href="assets/cipherflow-paper.pdf">Read paper</a>
+        <a class="btn ghost" href="#citation">Cite</a>
       </div>
     </div>
+
+    <figure class="paper-overview">
+      <a href="assets/cipherflow-overview.pdf" aria-label="Open the CipherFlow overview as a vector PDF"><img src="assets/cipherflow-overview.png" width="1584" height="604" alt="Model graphs, HE/MPC primitives, and CPU/GPU and network profiles enter CipherFlow. MicroBench, state-expanded planning, and BlockFold produce a latency-optimized hybrid secure plan with conversions and HE refresh."></a>
+      <figcaption><strong>CipherFlow at a glance.</strong> Model graphs, cryptographic primitives, and hardware/network profiles inform a latency-optimized HE–MPC plan with conversions and HE maintenance.</figcaption>
+    </figure>
 
     <div class="plan-card" aria-labelledby="live-title">
       <div class="pc-head">
@@ -1017,14 +1038,31 @@ em    = cf.runtime.Emulator(plan, retriever, extensions=[rag])                  
     </div>
   </section>
 </div>
+<section class="band alt citation" id="citation" aria-labelledby="h-citation">
+  <div class="wrap">
+    <div class="kicker">Citation</div>
+    <h2 id="h-citation">Cite CipherFlow</h2>
+    <p>Hedong Zhang, Mengxin Zheng, and Qian Lou. <em>CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference.</em></p>
+    <p><a href="assets/cipherflow-paper.pdf">Read the paper</a> · <a href="assets/cipherflow.bib" download>Download BibTeX</a></p>
+    <div class="pout"><pre id="citation-bibtex" aria-label="CipherFlow BibTeX citation">@inproceedings{zhang2026cipherflow,
+  title     = {{CipherFlow}: Compiling {AI} Programs for Efficient Cryptographically Secure Inference},
+  author    = {Zhang, Hedong and Zheng, Mengxin and Lou, Qian},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+  url       = {https://loopleap-lab.github.io/CipherFlow/assets/cipherflow-paper.pdf}
+}</pre><button class="copy" type="button" data-copy="citation-bibtex" aria-label="Copy BibTeX">Copy</button></div>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div><div class="fmark">Cipher<b>Flow</b></div><p class="fline">A hardware-aware compiler framework for efficient secure inference.</p></div>
+    <div><div class="fmark"><img src="assets/cipherflow-refined-a-dark.png" width="1146" height="216" alt="CipherFlow"></div><p class="fline">Compiling AI Programs for Efficient Cryptographically Secure Inference.</p></div>
     <nav class="flinks" aria-label="Links">
       <a href="https://github.com/loopleap-lab/CipherFlow">GitHub</a>
       <a href="planner/">Plan explorer</a>
+      <a href="assets/cipherflow-paper.pdf">Paper</a>
+      <a href="#citation">Cite</a>
       <a href="https://github.com/loopleap-lab/CipherFlow/blob/main/ROADMAP.md">Roadmap</a>
       <a href="https://github.com/loopleap-lab/CipherFlow/blob/main/docs/tutorials/backend-primitives.md">Primitives tutorial</a>
     </nav>

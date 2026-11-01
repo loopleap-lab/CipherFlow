@@ -15,8 +15,9 @@
   <a href="cipherflow/README.md#plan-format"><b>Plan format</b></a> |
   <a href="docs/FAQ.md"><b>FAQ</b></a> |
   <a href="ROADMAP.md"><b>Roadmap</b></a> |
-  <a href="https://claude.ai/artifact/DZBuQxQxf73muUsyQ19ZtS"><b>Website</b></a>
-  <!-- | <a href="PAPER_URL"><b>Paper (NeurIPS 2026)</b></a> -->
+  <a href="https://loopleap-lab.github.io/CipherFlow/"><b>Website</b></a> |
+  <a href="docs/assets/cipherflow-paper.pdf"><b>Paper</b></a> |
+  <a href="#citation"><b>Cite</b></a>
 </p>
 
 ## About
@@ -167,17 +168,21 @@ plans executed under encryption ([ROADMAP.md](ROADMAP.md)). The main limits toda
 
 [Known limitations](docs/backends.md#known-limitations) lists them all.
 
-<!-- ## Citation
-
-```bibtex
-@inproceedings{zhang2026cipherflow,
-  title     = {CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference},
-  author    = {Zhang, Hedong and Zheng, Mengxin and Lou, Qian},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2026}
-}
-``` -->
-
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE).
+
+## Citation
+
+If you use CipherFlow in your research, please cite the [paper](docs/assets/cipherflow-paper.pdf).
+You can also [download the BibTeX entry](docs/assets/cipherflow.bib).
+
+```bibtex
+@inproceedings{zhang2026cipherflow,
+  title     = {{CipherFlow}: Compiling {AI} Programs for Efficient Cryptographically Secure Inference},
+  author    = {Zhang, Hedong and Zheng, Mengxin and Lou, Qian},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+  url       = {https://loopleap-lab.github.io/CipherFlow/assets/cipherflow-paper.pdf}
+}
+```
