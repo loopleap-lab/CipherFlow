@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Patrick+Hand&display=swap">
 <style>
 /* Layout: one page per nav link (views switched by the URL's #anchor), each in white and pale bands. Home is the
-   hero, the copy beside a live plan sheet (operators top to bottom on client and server lanes), the results, the
+   introduction, the paper overview, a live plan sheet (operators top to bottom on client and server lanes), the results, the
    comparison with other planners, and four cards into the other pages. Colour carries meaning only: indigo is the
    compiler, green is HE (ciphertexts on the server), orange is MPC (one share per party). The plan sheet is drawn
    by hand, like the README's overview figure: navy ink, a teal box with a lock for HE, an amber bar with a shield
@@ -104,7 +104,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--wash-2); c
 .pill.soon { color: var(--faint); gap: 8px; cursor: default; }
 .pill small { font: 500 9.5px var(--mono); letter-spacing: 0.08em; color: var(--teal); border: 1px solid rgba(4, 127, 120, 0.35); border-radius: 999px; padding: 1px 6px; }
 
-/* ---------- hero: the copy beside the live plan sheet ---------- */
+/* ---------- hero: introduction, overview, then the live plan sheet ---------- */
 .hero { position: relative; overflow: hidden; isolation: isolate; border-bottom: 1px solid var(--rule); }
 .hero::before { /* lattice: points of a skewed integer lattice, the ground CKKS security stands on */
   content: ""; position: absolute; inset: -60px; z-index: -1; opacity: 0.6;
@@ -115,23 +115,22 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--wash-2); c
 }
 .hero::after { content: ""; position: absolute; z-index: -1; width: 820px; height: 820px; right: -260px; top: -260px; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(4, 127, 120, 0.08), rgba(35, 37, 155, 0.05) 55%, transparent); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px 56px; align-items: start; padding-block: 48px 72px; }
-.hero-copy { padding-top: 0; }
-@media (max-width: 1040px) { .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-block: 40px 64px; } .hero-copy { padding-top: 0; } }
-.hero-copy { display: grid; gap: 24px; align-content: center; min-width: 0; }
-.hero-logo { width: min(360px, 100%); height: auto; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; padding-block: 40px 64px; }
+.hero-copy { display: grid; gap: 20px; justify-items: center; width: 100%; max-width: 960px; margin-inline: auto; text-align: center; min-width: 0; }
+.hero-logo { width: min(320px, 100%); height: auto; }
 .hero h1 { margin: 0; }
-.tagline { font: 600 clamp(28px, 3.2vw, 40px)/1.16 var(--display); letter-spacing: -0.025em; max-width: 23ch; text-wrap: balance; }
+.tagline { font: 600 clamp(28px, 3.7vw, 46px)/1.16 var(--display); letter-spacing: -0.025em; max-width: 34ch; text-wrap: balance; }
 .tagline em { font-style: normal; color: var(--teal); }
-.pitch { font-size: 17px; color: var(--muted); max-width: 52ch; }
+.pitch { font-size: 17px; color: var(--muted); max-width: 82ch; }
 .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.hero-copy .cta { justify-content: center; }
 .paper-overview { grid-column: 1 / -1; margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 18px; padding: 24px; }
-.hero .plan-card { grid-column: 2; grid-row: 1; }
-@media (max-width: 1040px) { .hero .plan-card { grid-column: 1; grid-row: 3; } }
+.hero .plan-card { width: min(880px, 100%); justify-self: center; margin-top: 8px; }
 .paper-overview img { display: block; width: 100%; height: auto; }
 .paper-overview figcaption { margin-top: 18px; font-size: 14px; color: var(--muted); }
-.challenges { display: grid; gap: 14px; color: var(--muted); font-size: 15px; }
+.challenges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; color: var(--muted); font-size: 15px; text-align: left; }
 .challenges strong { color: var(--ink); }
+@media (max-width: 640px) { .hero-grid { padding-top: 28px; gap: 24px; } .challenges { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
 .citation { scroll-margin-top: 90px; }
 .citation .pout { margin-top: 20px; }
 .citation pre { white-space: pre-wrap; overflow-wrap: anywhere; }

@@ -8,16 +8,21 @@
 <h3 align="center">CipherFlow: Compiling AI Programs for Efficient Cryptographically Secure Inference</h3>
 
 <p align="center">
-  <a href="demo"><b>Demo</b></a> |
-  <a href="#quick-start"><b>Quick start</b></a> |
-  <a href="#documentation"><b>Docs</b></a> |
-  <a href="cipherflow/README.md#api"><b>API</b></a> |
-  <a href="cipherflow/README.md#plan-format"><b>Plan format</b></a> |
-  <a href="docs/FAQ.md"><b>FAQ</b></a> |
-  <a href="ROADMAP.md"><b>Roadmap</b></a> |
-  <a href="https://loopleap-lab.github.io/CipherFlow/"><b>Website</b></a> |
-  <a href="docs/assets/cipherflow-paper.pdf"><b>Paper</b></a> |
-  <a href="#citation"><b>Cite</b></a>
+  <b>Project</b>&nbsp; · &nbsp;
+  <a href="https://loopleap-lab.github.io/CipherFlow/">Website</a> ·
+  <a href="docs/assets/cipherflow-paper.pdf">Paper</a> ·
+  <a href="#citation">Cite</a>
+  <br>
+  <b>Get started</b>&nbsp; · &nbsp;
+  <a href="#quick-start">Quick start</a> ·
+  <a href="demo">Demo</a>
+  <br>
+  <b>Reference</b>&nbsp; · &nbsp;
+  <a href="#documentation">Docs</a> ·
+  <a href="cipherflow/README.md#api">API</a> ·
+  <a href="cipherflow/README.md#plan-format">Plan format</a> ·
+  <a href="docs/FAQ.md">FAQ</a> ·
+  <a href="ROADMAP.md">Roadmap</a>
 </p>
 
 ## About
