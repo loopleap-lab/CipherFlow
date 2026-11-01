@@ -136,6 +136,8 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--wash-2); c
 .hero-copy .cta { justify-content: center; }
 .paper-overview { grid-column: 1 / -1; margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 18px; padding: 24px; }
 .hero .plan-card { width: min(880px, 100%); justify-self: center; margin-top: 8px; }
+.explorer-link { justify-self: center; background: var(--demo-mpc); color: #ffffff; }
+.explorer-link:hover { background: var(--sk-ink); color: #ffffff; }
 .paper-overview img { display: block; width: 100%; height: auto; }
 .paper-overview figcaption { margin-top: 18px; font-size: 14px; color: var(--muted); }
 .challenges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; color: var(--muted); font-size: 15px; text-align: left; }
@@ -582,6 +584,7 @@ h1:focus { outline: none; }
         <p class="src">Plans by <code>cipherflow.compile</code> with the paper's profiles (HE: NEXUS; MPC: SHAFT, two parties and a trusted dealer). Latency is the whole 12-block model, estimated from measured costs.</p>
       </div>
     </div>
+    <a class="btn explorer-link" href="planner/">Open full Plan explorer</a>
   </div>
 </div>
 

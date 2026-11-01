@@ -15,7 +15,7 @@
   <br>
   <b>Get started</b>&nbsp; · &nbsp;
   <a href="#quick-start">Quick start</a> ·
-  <a href="demo">Demo</a>
+  <a href="https://loopleap-lab.github.io/CipherFlow/planner/">Demo</a>
   <br>
   <b>Reference</b>&nbsp; · &nbsp;
   <a href="#documentation">Docs</a> ·
